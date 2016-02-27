@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
 
+  resource :two_factor_setting, only: %i(edit update)
+
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
