@@ -24,6 +24,8 @@
   <p>
     <div>Secret</div>
     <div><%= two_factor_secret %></div>
+
+    <img src=<%= two_factor_qr_code_path(format: :svg) %> />
   </p>
 
   <%= form_tag(two_factor_setting_path, method: :put) do %>

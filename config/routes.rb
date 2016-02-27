@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resource :two_factor_setting, only: %i(edit update)
+  resource :two_factor_qr_code, only: :show
 
   root 'home#index'
 
