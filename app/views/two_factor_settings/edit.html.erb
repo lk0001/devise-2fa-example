@@ -1,0 +1,40 @@
+<h2>Two factor authentication settings</h2>
+
+<% if current_user.otp_required_for_login? %>
+  <p>
+    Two factor authentication is enabled.
+  </p>
+
+  <%= form_tag(two_factor_setting_path, method: :put) do %>
+    <div class="field">
+      <%= label_tag 'Password' %><br />
+      <%= password_field_tag :password, '', autocomplete: "off" %>
+    </div>
+    <%= flash[:alert] %>
+
+    <div class="actions">
+      <%= submit_tag "Disable 2fa" %>
+    </div>
+  <% end %>
+<% else %>
+  <p>
+    Two factor authentication is disabled.
+  </p>
+
+  <p>
+    <div>Secret</div>
+    <div><%= two_factor_secret %></div>
+  </p>
+
+  <%= form_tag(two_factor_setting_path, method: :put) do %>
+    <div class="field">
+      <%= label_tag 'Verification_code' %><br />
+      <%= text_field_tag :verification_code, '', autocomplete: "off" %>
+    </div>
+    <%= flash[:alert] %>
+
+    <div class="actions">
+      <%= submit_tag "Enable 2fa" %>
+    </div>
+  <% end %>
+<% end %>
