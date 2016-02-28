@@ -26,6 +26,7 @@ gem 'dotenv-rails'
 
 gem 'devise'
 gem 'two_factor_authentication'
+gem 'rqrcode-rails3'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
